@@ -1,0 +1,12 @@
+Revision history for Perl module Geo::Local::Server
+
+0.03 2014-11-25
+  - Fixed spec file requires
+
+0.02 2014-11-24
+  - Operational
+  - Added value added scripts
+  - Added RPM spec file
+
+0.01 2014-11-23
+  - original version; created by ExtUtils::ModuleMaker 0.51
