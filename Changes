@@ -1,5 +1,8 @@
 Revision history for Perl module Geo::Local::Server
 
+0.04 2014-11-25
+  - Fixed spec file config
+
 0.03 2014-11-25
   - Fixed spec file requires
 

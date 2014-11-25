@@ -1,6 +1,6 @@
 Name:           perl-Geo-Local-Server
-Version:        0.03
-Release:        2%{?dist}
+Version:        0.04
+Release:        1%{?dist}
 Summary:        Returns the configured coordinates of the local server
 License:        BSD
 Group:          Development/Libraries
@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*
 %{_mandir}/man1/*
 %{_bindir}/*
-%attr(0644,root,root) %{_sysconfdir}/local.coordinates
+%config %attr(0644,root,root) %{_sysconfdir}/local.coordinates
 %attr(0755,root,root) %{_sysconfdir}/profile.d/local.coordinates.sh
 
 %changelog

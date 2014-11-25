@@ -7,7 +7,7 @@ use Path::Class qw{file};
 #runtime use Win32 if Windows
 #runtime use Sys::Config unless Windows
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 NAME
 
