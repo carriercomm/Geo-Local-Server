@@ -27,9 +27,9 @@ sunset_time - Prints the time of the next sunset
 
 =head1 SYNOPSIS
 
-sunset_time
-sunset_time [-f FILE]
-echo "task" | at `sunset_time`
+  sunset_time
+  sunset_time [-f FILE]
+  echo "task" | at `sunset_time`
 
 =head1 OPTIONS
 

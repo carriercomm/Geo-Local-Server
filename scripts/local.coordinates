@@ -8,7 +8,7 @@ my $opt     = {};
 getopts("f:", $opt);
 
 my $file    = $opt->{"f"};
-my $gls     = Geo::Local::Server->new(configfile=>$file, env=>"");
+my $gls     = Geo::Local::Server->new(configfile=>$file, envname=>"");  #disable env to enable this script to set the environment
 printf "%s %s %s\n", $gls->lonlathae;
 
 __END__
@@ -29,6 +29,6 @@ Specify alternate configuration file
 
 =head1 DESCRIPTION
 
-Uses the system coordinates as configured from the perl package Geo::Local::Server.
+Uses the system coordinates as configured from the perl package Geo::Local::Server to format the string.
 
 =cut

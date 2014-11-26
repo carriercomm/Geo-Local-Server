@@ -1,5 +1,11 @@
 Revision history for Perl module Geo::Local::Server
 
+0.05 2014-11-26
+  - Updated Documentation
+  - Renamed property env to envname
+  - Renamed accessor from Config to ci
+  - Updated logic on configfile to support disable setting like environment
+
 0.04 2014-11-25
   - Fixed spec file config
 

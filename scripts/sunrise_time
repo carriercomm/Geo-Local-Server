@@ -27,9 +27,9 @@ sunrise_time - Prints the time of the next sunrise
 
 =head1 SYNOPSIS
 
-sunrise_time
-sunrise_time [-f FILE]
-echo "task" | at `sunrise_time`
+  sunrise_time
+  sunrise_time [-f FILE]
+  echo "task" | at `sunrise_time`
 
 =head1 OPTIONS
 

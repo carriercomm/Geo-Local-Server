@@ -1,5 +1,5 @@
 Name:           perl-Geo-Local-Server
-Version:        0.04
+Version:        0.05
 Release:        1%{?dist}
 Summary:        Returns the configured coordinates of the local server
 License:        BSD

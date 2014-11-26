@@ -30,11 +30,11 @@ if ($sunrise < $sunset) {
 }
 
 if ($verbose) {
- printf "Lat: %s, Lon: %s, Now: %s, Sunrise: %s, Sunset: %s, State: %s\n", 
-        $lat, 
-        $lon, 
-        $now, 
-        $sunrise, 
+ printf "Lat: %s, Lon: %s, Now: %s, Sunrise: %s, Sunset: %s, State: %s\n",
+        $lat,
+        $lon,
+        $now,
+        $sunrise,
         $sunset,
         $state;
 }
@@ -49,8 +49,8 @@ is_nighttime - Exit status of true if it is currently nighttime
 
 =head1 SYNOPSIS
 
-is_nighttime [-v] [-f FILE]
-is_nighttime && echo 'It is Nighttime!'
+  is_nighttime [-v] [-f FILE]
+  is_nighttime && echo 'It is Nighttime!'
 
 =head1 OPTIONS
 
@@ -68,7 +68,7 @@ Uses the system coordinates as configured from the perl package Geo::Local::Serv
 
 =head1 EXIT STATUS
 
-The exit status is 0 if it is nighttime.  The exit status is 1 if it is daytime
+The exit status is 0 if it is nighttime.  The exit status is 1 if it is daytime.
 
 =cut
 
