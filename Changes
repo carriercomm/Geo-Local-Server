@@ -1,5 +1,11 @@
 Revision history for Perl module Geo::Local::Server
 
+0.07 2014-12-17
+  - Updated scripts to use a different DateTime::Event::Sunrise API as the sunrise_datetime and sunset_datetime method do not return the "next" sunrise/sunset as documented but a sunrise and sunset on the day
+ 
+0.06 2014-11-30
+  - Updated logic for local.coordinates in case there is no support for wgs84 in the file
+
 0.05 2014-11-26
   - Updated Documentation
   - Renamed property env to envname

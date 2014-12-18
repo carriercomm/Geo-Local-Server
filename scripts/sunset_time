@@ -14,8 +14,11 @@ my $now     = DateTime->now;
 my $gls     = Geo::Local::Server->new(configfile=>$file);
 my $lat     = $gls->lat;
 my $lon     = $gls->lon;
-my $des     = DateTime::Event::Sunrise->new(latitude=>$lat, longitude=>$lon);
-my $sunset  = $des->sunset_datetime($now)->set_time_zone("local");  #per the documentation this is the next sunset
+my $alt     = -0.833;
+my $sunset  = DateTime::Event::Sunrise
+                ->sunset(longitude=>$lon, latitude=>$lat, altitude=>$alt, precise=>1)
+                  ->next($now)
+                    ->set_time_zone("local");
 
 printf "%02d:%02d\n", $sunset->hour, $sunset->minute;
 

@@ -1,5 +1,5 @@
 Name:           perl-Geo-Local-Server
-Version:        0.05
+Version:        0.07
 Release:        1%{?dist}
 Summary:        Returns the configured coordinates of the local server
 License:        BSD
@@ -25,6 +25,14 @@ Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $versi
 %description
 Reads coordinates from either the user environment variable
 COORDINATES_WGS84_LON_LAT_HAE or the file /etc/local.coordinates.
+
+%package profile
+summary:        Returns the configured coordinates of the local server
+Requires:       setup
+
+%description profile
+Installs a profile.d file to export the environment variable from
+the /etc/local.coordinates file.
 
 %prep
 %setup -q -n Geo-Local-Server-%{version}
@@ -63,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_bindir}/*
 %config %attr(0644,root,root) %{_sysconfdir}/local.coordinates
+
+%files profile
+%defattr(-,root,root,-)
 %attr(0755,root,root) %{_sysconfdir}/profile.d/local.coordinates.sh
 
 %changelog

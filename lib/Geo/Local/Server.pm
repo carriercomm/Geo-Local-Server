@@ -7,7 +7,7 @@ use Path::Class qw{file};
 #runtime use Win32 if Windows
 #runtime use Sys::Config unless Windows
 
-our $VERSION = '0.05';
+our $VERSION = '0.07';
 
 =head1 NAME
 
@@ -31,8 +31,8 @@ Typical use is with the provided scripts
 
   is_nighttime && power-outlet WeMo on  host mylamp
   is_daytime   && power-outlet WeMo off host mylamp
-  echo "task" | at `sunrise_time`
-  echo "task" | at `sunset_time`
+  echo "power-outlet WeMo on  host mylamp" | at `sunset_time`
+  echo "power-outlet WeMo off host mylamp" | at `sunrise_time`
 
 =head2 One Liner
 
@@ -96,7 +96,8 @@ sub lonlathae {
       #First Step Pull from environment which can be configured by user
       my ($lon, $lat, $hae)=split(/\s+/, $coordinates);
       $self->{"lonlathae"}=[$lon, $lat, $hae];
-    } elsif (defined($file=$self->configfile) and -r $file) { #don't load runtime packages unless we need
+    } elsif (defined($file=$self->configfile) and -r $file and defined($self->ci) and $self->ci->SectionExists("wgs84")) {
+      #We assign the config filename inside the elsif to not load runtime requires if we hit the ENV above.
       #Second Step Pull from file system which can be configured by system
       my $lat=$self->ci->val(wgs84 => "latitude");
       my $lon=$self->ci->val(wgs84 => "longitude");

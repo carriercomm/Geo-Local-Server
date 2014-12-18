@@ -15,9 +15,9 @@ my $now     = DateTime->now;
 my $gls     = Geo::Local::Server->new(configfile=>$file);
 my $lat     = $gls->lat;
 my $lon     = $gls->lon;
-my $des     = DateTime::Event::Sunrise->new(latitude=>$lat, longitude=>$lon);
-my $sunrise = $des->sunrise_datetime($now); #per the documentation this is the next sunrise
-my $sunset  = $des->sunset_datetime($now);  #per the documentation this is the next sunset
+my $alt     = -0.833;
+my $sunrise = DateTime::Event::Sunrise->sunrise(longitude=>$lon, latitude=>$lat, altitude=>$alt, precise=>1)->next($now);
+my $sunset  = DateTime::Event::Sunrise->sunset(longitude=>$lon, latitude=>$lat, altitude=>$alt, precise=>1)->next($now);
 my $state   = "";
 my $exit    = 0;
 
