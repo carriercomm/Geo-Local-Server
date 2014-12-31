@@ -7,9 +7,12 @@ use DateTime::Event::Sunrise;
 use Geo::Local::Server;
 
 my $opt     = {};
-getopts("f:", $opt);
+getopts("f:m:", $opt);
 
+my $syntax  = "sunrise_time [-f FILE] [-m +/-minutes]";
 my $file    = $opt->{"f"};
+my $offset  = $opt->{"m"} || 0;
+die("$syntax\n") unless $offset =~ m/^[+-]?\d+$/;
 my $now     = DateTime->now;
 my $gls     = Geo::Local::Server->new(configfile=>$file);
 my $lat     = $gls->lat;
@@ -18,7 +21,8 @@ my $alt     = -0.833;
 my $sunrise = DateTime::Event::Sunrise
                 ->sunrise(longitude=>$lon, latitude=>$lat, altitude=>$alt, precise=>1)
                   ->next($now)
-                    ->set_time_zone("local");
+                    ->set_time_zone("local")
+                      ->add(minutes=>$offset);
 
 printf "%02d:%02d\n", $sunrise->hour, $sunrise->minute;
 
@@ -31,7 +35,7 @@ sunrise_time - Prints the time of the next sunrise
 =head1 SYNOPSIS
 
   sunrise_time
-  sunrise_time [-f FILE]
+  sunrise_time [-f FILE] [-m +/-minutes]
   echo "task" | at `sunrise_time`
 
 =head1 OPTIONS
@@ -39,6 +43,10 @@ sunrise_time - Prints the time of the next sunrise
 =head2 -f FILE - default /etc/local.coordinates
 
 Specify alternate configuration file
+
+=head2 -m Output offset in minutes
+
+Specify a certain offset before or after the sunrise
 
 =head1 DESCRIPTION
 

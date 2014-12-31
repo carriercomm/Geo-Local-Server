@@ -1,5 +1,8 @@
 Revision history for Perl module Geo::Local::Server
 
+0.08 2014-12-30
+  - Updated scripts sunrise_time and sunset_time to add minute offset as it is easier to do in Perl than in bash
+
 0.07 2014-12-17
   - Updated scripts to use a different DateTime::Event::Sunrise API as the sunrise_datetime and sunset_datetime method do not return the "next" sunrise/sunset as documented but a sunrise and sunset on the day
  
